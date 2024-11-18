@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import { Crimson_Pro, Cormorant_SC, Montserrat } from 'next/font/google'
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
+const cormorant = Cormorant_SC({ 
+    weight: '400',
+    style: 'normal',
+    variable: '--font-cormorant' 
+})
+const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 
 export const metadata: Metadata = {
   title: "Aubrey & Jose",
@@ -26,8 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+        className={`${crimson.variable} ${cormorant.variable} ${montserrat.variable} font-sans`}>
         {children}
       </body>
     </html>
