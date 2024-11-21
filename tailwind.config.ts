@@ -60,6 +60,7 @@ export default {
             crimson: ['var(--font-crimson)'],
             cormorant: ['var(--font-cormorant)'],
             montserrat: ['var(--font-montserrat)'],
+            sevillana: ['var(--font-sevillana)']
         }
   	}
   },

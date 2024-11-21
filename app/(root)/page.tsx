@@ -7,58 +7,98 @@ const page = () => {
         <div className="group">
             <div className="card" >
                 <img 
-                    src='/carousel/7.JPG'
+                    src='/carousel/1.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/6.JPG'
-                    style={{ height: '100%', width: '200%' }}
+                    src='/carousel/2.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/8.jpg'
-                    style={{ height: '100%', width: '100%' }}
+                    src='/carousel/3.jpg'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card" >
                 <img 
                     src='/carousel/4.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
                     src='/carousel/5.JPG'
-                />
-            </div>
-        </div>
-        <div className="group" aria-hidden>
-            <div className="card aria-hidden" >
-                <img 
-                    src='/carousel/7.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
                     src='/carousel/6.JPG'
-                    style={{ height: '100%', width: '200%' }}
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/8.jpg'
-                    style={{ height: '100%', width: '100%' }}
+                    src='/carousel/7.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/8.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card" >
+                <img 
+                    src='/carousel/1.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/2.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/3.jpg'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card" >
                 <img 
                     src='/carousel/4.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
                     src='/carousel/5.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/6.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/7.JPG'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card">
+                <img 
+                    src='/carousel/8.JPG'
+                    style={{ height: '100%'}}
                 />
             </div>
         </div>

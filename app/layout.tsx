@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Crimson_Pro, Cormorant_SC, Montserrat } from 'next/font/google'
+import { Crimson_Pro, Cormorant_SC, Montserrat, Sevillana } from 'next/font/google'
 
 const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
 const cormorant = Cormorant_SC({ 
@@ -9,6 +9,11 @@ const cormorant = Cormorant_SC({
     variable: '--font-cormorant' 
 })
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
+const sevillana = Sevillana({ 
+  weight: '400',
+  style: 'normal',
+  variable: '--font-sevillana' 
+})
 
 export const metadata: Metadata = {
   title: "Aubrey & Jose",
@@ -23,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimson.variable} ${cormorant.variable} ${montserrat.variable} font-sans`}>
+        className={`${crimson.variable} ${cormorant.variable} ${montserrat.variable}  ${sevillana.variable} font-sans`}>
         {children}
       </body>
     </html>
