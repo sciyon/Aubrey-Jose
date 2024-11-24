@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 const page = () => {
   return (
     <div className='pt-6 flex flex-col items-center '>

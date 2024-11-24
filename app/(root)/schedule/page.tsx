@@ -41,7 +41,7 @@ const page = () => {
         <h3>Costa Del Sol</h3>
         <h3>Independence Street, Oroquieta City</h3>
 
-        <p className='pt-3'>We can't wait to celebrate with you!</p>
+        <p className='pt-3'>We can&apos;t wait to celebrate with you!</p>
         <p className=''>Our dinner reception is only a ten-minute drive from the ceremony.</p>
         <p className='pt-2 pb-4'>Click the link below to get the pinned location of the reception.</p>
       </div>
