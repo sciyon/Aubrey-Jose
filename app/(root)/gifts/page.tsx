@@ -1,9 +1,10 @@
 import Image from "next/image"
+import { cormorant } from '@/app/fonts';
 
 const page = () => {
   return (
     <div className='flex flex-col items-center'>
-      <h1 className='font-cormorant text-6xl py-3'>Gifts</h1>
+      <h1 className={`${cormorant.className} text-6xl py-3`}>Gifts</h1>
       <div className="pt-2 font-crimson flex flex-col items-center w-1/3 text-center text-2xl">
         <p>With hearts full of love, we are blessed.</p>
         <p>Your presence is our only request.</p>

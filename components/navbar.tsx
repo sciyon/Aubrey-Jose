@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import { cormorant } from '@/app/fonts';
 
 const navbar = () => {
   return (
     <nav className="text-center mt-4"> 
-      <Link href='/' className='text-7xl font-cormorant'>Aubrey & Jose</Link>
+      <Link href='/' className={`${cormorant.className} text-7xl py-6`}>Aubrey & Jose</Link>
 
       <div className="flex flex-row justify-center font-crimson gap-12 text-2xl pt-4">
         <Link href='/'>Home</Link>

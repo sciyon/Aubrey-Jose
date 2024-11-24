@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image';
+import { cormorant } from '@/app/fonts';
 
 const page = () => {
   return (
     <div className='flex flex-col items-center'>
-      <h1 className='font-cormorant text-6xl py-6'>Dress Code</h1>
+      <h1 className={`${cormorant.className} text-6xl py-6`}>Dress Code</h1>
       <div className="flex flex-row pb-12">
         <div className="flex flex-col items-center">
           <Image 
