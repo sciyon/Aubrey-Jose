@@ -37,12 +37,12 @@ const page = () => {
       <h2 className='text-5xl font-crimson'>Reception</h2>
       <h3 className='text-2xl font-crimson'>4:30 pm onwards</h3>
 
-      <div className="default-text flex flex-col items-center w-1/3 text-center">
+      <div className="default-text flex flex-col items-center text-center">
         <h3>Costa Del Sol</h3>
         <h3>Independence Street, Oroquieta City</h3>
 
-        <p className='pt-3'>Our dinner reception is only a ten-minute drive from the Capitol. </p>
-        <p className='pt-2 pb-4'>Click the link below to get the pinned location of the ceremony.</p>
+        <p className='pt-3'>Our dinner reception is only a ten-minute drive from the ceremony. </p>
+        <p className='pt-2 pb-4'>Click the link below to get the pinned location of the reception.</p>
       </div>
       <a href='https://maps.app.goo.gl/FkWHVZVZWmo2CWecA' target='_blank' rel='noopener noreferrer'>
         <button className='bg-brown text-white text-xl w-fit h-12 py-2 px-4 rounded-xl mb-12 hover:bg-lightbrown'>Maps</button>
