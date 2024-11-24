@@ -21,7 +21,7 @@ const page = () => {
         <h3>Talairon, Oroquieta City</h3>
 
         <p className='pt-3'>Please arrive at the ceremony by 12:30 pm to ensure you are
-        comfortably seated before the ceremony begins promptly at 3 PM.</p>
+        comfortably seated before the ceremony begins promptly at 1 pm.</p>
         <p className='pt-2 pb-4'>Click the link below to get the pinned location of the ceremony.</p>
       </div>
       <a href='https://maps.app.goo.gl/LfH5rezAFJjQfdgbA' target='_blank' rel='noopener noreferrer'>
@@ -31,8 +31,8 @@ const page = () => {
       <Image 
         src='/rings.svg' // Path to your SVG file
         alt='wedding cake'
-        width={100} // Set the desired width
-        height={100} // Set the desired height
+        width={90} // Set the desired width
+        height={90} // Set the desired height
       />
       <h2 className='text-5xl font-crimson'>Reception</h2>
       <h3 className='text-2xl font-crimson'>4:30 pm onwards</h3>
@@ -41,7 +41,8 @@ const page = () => {
         <h3>Costa Del Sol</h3>
         <h3>Independence Street, Oroquieta City</h3>
 
-        <p className='pt-3'>Our dinner reception is only a ten-minute drive from the ceremony. </p>
+        <p className='pt-3'>We can't wait to celebrate with you!</p>
+        <p className=''>Our dinner reception is only a ten-minute drive from the ceremony.</p>
         <p className='pt-2 pb-4'>Click the link below to get the pinned location of the reception.</p>
       </div>
       <a href='https://maps.app.goo.gl/FkWHVZVZWmo2CWecA' target='_blank' rel='noopener noreferrer'>

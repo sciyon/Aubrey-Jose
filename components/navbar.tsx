@@ -13,7 +13,6 @@ const navbar = () => {
         <Link href='/rsvp'>RSVP</Link>
         <Link href='/gifts'>Gifts</Link>
         <Link href='/entourage'>Entourage</Link>
-        <Link href='/faq'>FAQ</Link>
       </div>
     </nav>
   )
