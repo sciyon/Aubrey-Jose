@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Crimson_Pro, Cormorant_SC, Montserrat, Sevillana } from 'next/font/google'
+import { Crimson_Pro, Cormorant_SC, Montserrat, Sevillana, Homemade_Apple } from 'next/font/google'
+import localFont from "next/font/local";
 
 const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
 const cormorant = Cormorant_SC({ 
@@ -13,6 +14,11 @@ const sevillana = Sevillana({
   weight: '400',
   style: 'normal',
   variable: '--font-sevillana' 
+})
+
+const homeMadeApple = localFont({
+  src: '/fonts/HomemadeApple-Regular.ttf',
+  variable: '--font-home-made-apple' 
 })
 
 export const metadata: Metadata = {
@@ -28,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${crimson.variable} ${cormorant.variable} ${montserrat.variable}  ${sevillana.variable} font-sans`}>
+        className={`${crimson.variable} ${cormorant.variable} ${montserrat.variable} ${sevillana.variable} font-sans`}>
         {children}
       </body>
     </html>

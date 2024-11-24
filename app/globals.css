@@ -39,6 +39,10 @@ crimson {
   animation: scrolling 10s linear infinite;
 }
 
+.default-text{
+  @apply pt-6 text-2xl font-crimson
+}
+
 @keyframes scrolling {
   0% {
     transform: translateX(0);
