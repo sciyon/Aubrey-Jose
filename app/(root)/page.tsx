@@ -29,25 +29,25 @@ const page = () => {
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/5.JPG'
+                    src='/carousel/5.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/6.JPG'
+                    src='/carousel/6.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/7.JPG'
+                    src='/carousel/7.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/8.JPG'
+                    src='/carousel/8.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
@@ -77,25 +77,25 @@ const page = () => {
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/5.JPG'
+                    src='/carousel/5.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/6.JPG'
+                    src='/carousel/6.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/7.JPG'
+                    src='/carousel/7.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
             <div className="card">
                 <img 
-                    src='/carousel/8.JPG'
+                    src='/carousel/8.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
