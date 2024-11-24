@@ -4,10 +4,11 @@ import { Crimson_Pro, Cormorant_SC, Montserrat, Sevillana } from 'next/font/goog
 
 const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
 const cormorant = Cormorant_SC({  
-    preload: false,
-    weight: '400',
-    style: 'normal',
-    variable: '--font-cormorant' 
+  subsets: ['latin'],
+  preload: false,
+  weight: '400',
+  style: 'normal',
+  variable: '--font-cormorant' 
 })
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 const sevillana = Sevillana({ 
