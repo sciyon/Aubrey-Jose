@@ -6,6 +6,7 @@ const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
 
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat' })
 const sevillana = Sevillana({ 
+  subsets: ['latin'],
   weight: '400',
   style: 'normal',
   variable: '--font-sevillana' 
