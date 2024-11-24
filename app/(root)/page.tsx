@@ -1,3 +1,5 @@
+import { cormorant } from '@/app/fonts';
+
 const page = () => {
   return (
     <div className='pt-6 flex flex-col items-center '>
@@ -103,9 +105,9 @@ const page = () => {
       </div>
 
       <p className="pt-16 font-crimson text-2xl">Together with their families</p>
-      <h1 className="text-8xl font-cormorant pt-4">AUBREY</h1>
+      <h1 className={`${cormorant.className} text-8xl pt-4`}>AUBREY</h1>
       <h1 className="text-2xl font-crimson">and</h1>
-      <h1 className="text-8xl font-cormorant">JOSE</h1>
+      <h1 className={`${cormorant.className} text-8xl`}>JOSE</h1>
 
       <h1 className="text-3xl font-crimson pt-10">HOLY CROSS PARISH</h1>
       <h1 className="text-3xl font-crimson">TALAIRON, OROQUIETA CITY</h1>
