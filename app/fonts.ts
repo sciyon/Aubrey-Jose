@@ -5,6 +5,7 @@ const crimson = Crimson_Pro({ subsets: ['latin'] })
 
 const cormorant = Cormorant_SC({ 
     subsets: ['latin'],
+    preload: false,
     weight: '400',
     style: 'normal'
 })

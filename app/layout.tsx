@@ -6,6 +6,7 @@ import localFont from "next/font/local";
 const crimson = Crimson_Pro({ subsets: ['latin'], variable: '--font-crimson' })
 const cormorant = Cormorant_SC({  
     subsets: ['latin'],
+    preload: false,
     weight: '400',
     style: 'normal',
     variable: '--font-cormorant' 
