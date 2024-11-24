@@ -24,7 +24,7 @@ const page = () => {
         comfortably seated before the ceremony begins promptly at 3 PM.</p>
         <p className='pt-2 pb-4'>Click the link below to get the pinned location of the ceremony.</p>
       </div>
-      <a href='https://maps.app.goo.gl/XLbEE2bvyWCduSUH6' target='_blank' rel='noopener noreferrer'>
+      <a href='https://maps.app.goo.gl/LfH5rezAFJjQfdgbA' target='_blank' rel='noopener noreferrer'>
         <button className='bg-brown text-white text-xl w-fit h-12 py-2 px-4 rounded-xl mb-12 hover:bg-lightbrown'>Maps</button>
       </a>
 
