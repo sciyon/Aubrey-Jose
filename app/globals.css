@@ -12,7 +12,8 @@ crimson {
 
 .carousel {
   margin: 0 auto;
-  max-width: full;
+  max-width: 100%;
+  width: fit-content;
   overflow: hidden;
   display: flex;
   padding: 20px 0;
@@ -20,6 +21,7 @@ crimson {
   &:hover .group {
     animation-play-state: paused;
   }
+  z-index: 0;
 }
 
 .card {
@@ -31,12 +33,14 @@ crimson {
   justify-content: center;
   align-items: center;
   max-height: 400px;
+  z-index: 0;
+  flex: 0 0 auto;
 }
 
 .group {
   display: flex;
   will-change: transform;
-  animation: scrolling 10s linear infinite;
+  animation: scrolling 20s linear infinite;
 }
 
 .default-text{
@@ -47,8 +51,21 @@ crimson {
   0% {
     transform: translateX(0);
   }
+  /* Default for larger screens */
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-200%); /* For large screens */
+  }
+}
+
+/* Media query for small screens */
+@media (max-width: 640px) { /* Adjust the max-width as needed */
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-500%); /* For small screens */
+    }
   }
 }
 

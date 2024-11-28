@@ -12,6 +12,7 @@ export default {
   		colors: {
         brown: '#56524E',
         lightbrown: '#7E7974',
+        bgbrown: '#F1EAE4',
         black: '#000000',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
