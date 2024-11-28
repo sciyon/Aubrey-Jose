@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { cormorant } from '@/app/fonts';
 
-const altnav = () => {
+const Altnav = () => {
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -62,4 +62,4 @@ const altnav = () => {
   );
 };
 
-export default altnav;
+export default Altnav;
