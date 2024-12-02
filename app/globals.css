@@ -10,6 +10,22 @@ crimson {
     font-family: var(--font-cormoran)
 }
 
+.title2{
+  @apply lg:text-3xl text-base
+}
+
+.name2{
+  @apply lg:text-4xl text-lg lg:pt-12 pt-4
+}
+
+.title3{
+  @apply lg:text-4xl text-base lg:pt-12 pt-6 pb-2
+}
+
+.name3{
+  @apply lg:text-4xl text-lg  
+}
+
 .carousel {
   margin: 0 auto;
   max-width: 100%;

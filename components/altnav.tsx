@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { cormorant } from '@/app/fonts';
+import { usePathname } from 'next/navigation'
 
 const Altnav = () => {
   const [nav, setNav] = useState(false);
@@ -20,15 +21,17 @@ const Altnav = () => {
     { id: 5, text: 'Gifts', href: '/gifts'  },
     { id: 6, text: 'Entourage', href: '/entourage' },
   ];
+  const pathname = usePathname()
 
   return (
     <div className='flex lg:flex-col flex-row justify-between items-center max-w-[1240px] mx-auto px-4 text-black relative z-50'>
-      <Link href='/' className={`${cormorant.className} text-3xl py-3 lg:text-7xl lg:py-6`}>Aubrey & Jose</Link>
-      <ul className='hidden md:flex flex-row justify-center font-crimson gap-12 text-2xl pt-4'>
+      <Link href='/' className={`${cormorant.className} text-3xl py-3 lg:text-7xl lg:pt-6`}>Aubrey & Jose</Link>
+      <ul className='hidden md:flex flex-row justify-center font-crimson gap-12 text-2xl pt-2'>
         {navItems.map(item => (
           <Link
             key={item.id}
             href={item.href}
+            className={pathname === item.href ? 'underline underline-offset-8 decoration-4' : ''}
           >
             {item.text}
           </Link>

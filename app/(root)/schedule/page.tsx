@@ -4,7 +4,7 @@ import { homeMadeApple } from '@/app/fonts'
 const page = () => {
   return (
     <div className='flex flex-col items-center'>
-      <h1 className={`${homeMadeApple.className} lg:text-6xl text-3xl lg:mt-14 lg:mb-16 mt-5 mb-3`}><span className='hidden lg:text-6xl'>Saturday,</span> January 18, 2025</h1>
+      <h1 className={`${homeMadeApple.className} lg:text-6xl text-3xl lg:mt-14 lg:mb-16 mt-5 mb-3 pt-10`}><span className='hidden lg:text-6xl'>Saturday,</span> January 18, 2025</h1>
       <span className={`${homeMadeApple.className} lg:hidden text-3xl mb-5`}>Saturday,</span>
 
       <Image 

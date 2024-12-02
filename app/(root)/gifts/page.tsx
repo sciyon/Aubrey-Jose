@@ -4,8 +4,7 @@ import { cormorant } from '@/app/fonts';
 const page = () => {
   return (
     <div className='flex flex-col items-center'>
-      <h1 className={`${cormorant.className} text-6xl py-3`}>Gifts</h1>
-      <div className="pt-2 font-crimson flex flex-col items-center lg:w-1/3 text-center text-2xl p-5">
+      <div className="font-crimson flex flex-col items-center lg:w-1/3 text-center text-2xl p-5 pt-10">
         <p>With hearts full of love, we are blessed.</p>
         <p>Your presence is our only request.</p>
         <p>But should you wish to give more;</p>
@@ -22,7 +21,7 @@ const page = () => {
         <div className="text-3xl flex flex-col items-center font-crimson pb-10">
           <h1><strong>GCash:</strong></h1>
           <h1><strong>Aubrey A.</strong></h1>
-          <h1>0917-954-0832</h1>
+          <h1>0927-954-0832</h1>
         </div>
       </div>
     </div>
