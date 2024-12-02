@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image';
-import { cormorant } from '@/app/fonts';
 
 const page = () => {
   return (
