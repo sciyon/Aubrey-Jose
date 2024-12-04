@@ -22,10 +22,6 @@ interface RSVPData {
   status: boolean;
 }
 
-interface ModalConfirmContent {
-  item: RSVPData;
-}
-
 interface ModalContent {
   header: string;
   body: string;
@@ -42,7 +38,6 @@ export const Invitations = () => {
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState<ModalContent>({ header: '', body: '' });
   const [showConfirmModal, setShowConfirmModal] = useState(false)
-  const [modalConfirmContent, setModalConfirmContent] = useState<ModalConfirmContent | null>(null);
   const [selectedItem, setSelectedItem] = useState<RSVPData | null>(null);
   const [modalMode, setModalMode] = useState<string | null>('');
   const [data, setData] = useState<RSVPData[]>([]);
@@ -90,7 +85,7 @@ export const Invitations = () => {
     if (supabase) {
       fetchData();
     }
-  }, [supabase]);
+  }, [supabase, fetchData]);
 
   useEffect(() => {
     let filtered = [...data];
@@ -138,9 +133,6 @@ export const Invitations = () => {
   const showAcceptModal = (item: RSVPData, string: string) => {
     setModalMode(string);
     setSelectedItem(item); 
-    setModalConfirmContent({
-      item: item
-    });
     setShowConfirmModal(true);
     console.log(modalMode)
   }
