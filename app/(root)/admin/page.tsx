@@ -267,14 +267,6 @@ export const Invitations = () => {
     setShowModal(true);
   }
 
-  const handlePageChange = (newPage: number) => {
-    const startIndex = (newPage - 1) * filterSettings.entries;
-    const endIndex = startIndex + filterSettings.entries;
-    const paginatedData = fullFilteredData.slice(startIndex, endIndex);
-    setFilteredData(paginatedData);
-    setCurrentPage(newPage);
-  };
-  
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       const newPage = currentPage + 1;
@@ -303,12 +295,6 @@ export const Invitations = () => {
     const paginatedData = fullFilteredData.slice(startIndex, endIndex);
     setFilteredData(paginatedData);
     setCurrentPage(totalPages);
-  };
-  
-  const handleFirstPage = () => {
-    const paginatedData = fullFilteredData.slice(0, filterSettings.entries);
-    setFilteredData(paginatedData);
-    setCurrentPage(1);
   };
   
 
