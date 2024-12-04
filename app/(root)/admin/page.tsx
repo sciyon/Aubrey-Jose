@@ -349,15 +349,12 @@ export const Invitations = () => {
 
   document.onkeydown = function(event) {
     event = event || window.event;
-    if (event.keyCode === 27) {
-      document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
-      const modals = document.getElementsByClassName('modal');
-      Array.prototype.slice.call(modals).forEach(i => {
+    const modals = document.getElementsByClassName('modal');
+    Array.prototype.slice.call(modals).forEach(i => {
         i.style.display = 'none';
-      });
-      setShowModal(false);
-      setShowConfirmModal(false);
-    }
+    });
+    setShowModal(false);
+    setShowConfirmModal(false);
   };
 
   return (
