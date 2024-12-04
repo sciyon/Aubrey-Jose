@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { cormorant } from '@/app/fonts';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 
 const Altnav = () => {
   const [nav, setNav] = useState(false);
