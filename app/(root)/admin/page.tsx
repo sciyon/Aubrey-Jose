@@ -330,31 +330,35 @@ const Invitations = () => {
     exportPDF(acceptedData, 'accepted_rsvp_requests.pdf');
   };
   
-  window.openModal = function(modalId: string) {
-    const modalElement = document.getElementById(modalId);
-    if (modalElement) {
-      modalElement.style.display = 'block';
-      document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden');
-    }
-  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.openModal = function(modalId: string) {
+        const modalElement = document.getElementById(modalId);
+        if (modalElement) {
+          modalElement.style.display = 'block';
+          document.getElementsByTagName('body')[0].classList.add('overflow-y-hidden');
+        }
+      }
 
-  window.closeModal = function(modalId: string) {
-    const modalElement = document.getElementById(modalId);
-    if (modalElement) {
-      modalElement.style.display = 'none';
-      document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
-      setShowModal(false);
-    }
-  }
+      window.closeModal = function(modalId: string) {
+        const modalElement = document.getElementById(modalId);
+        if (modalElement) {
+          modalElement.style.display = 'none';
+          document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
+          setShowModal(false);
+        }
+      }
 
-  document.onkeydown = function() {
-    const modals = document.getElementsByClassName('modal');
-    Array.prototype.slice.call(modals).forEach(i => {
-        i.style.display = 'none';
-    });
-    setShowModal(false);
-    setShowConfirmModal(false);
-  };
+      document.onkeydown = function() {
+        const modals = document.getElementsByClassName('modal');
+        Array.prototype.slice.call(modals).forEach(i => {
+            i.style.display = 'none';
+        });
+        setShowModal(false);
+        setShowConfirmModal(false);
+      };
+    }
+  }, []);
 
   return (
     <>
