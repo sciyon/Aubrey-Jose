@@ -347,8 +347,7 @@ export const Invitations = () => {
     }
   }
 
-  document.onkeydown = function(event) {
-    event = event || window.event;
+  document.onkeydown = function() {
     const modals = document.getElementsByClassName('modal');
     Array.prototype.slice.call(modals).forEach(i => {
         i.style.display = 'none';
@@ -481,7 +480,14 @@ export const Invitations = () => {
           <div className={`relative top-40 mx-auto shadow-xl rounded-md max-w-md font-pjs ${modalMode === 'Accept' ? 'bg-green-300' : modalMode === 'Revert' ? 'bg-yellow-300' : 'bg-red-300'}`}>
           <div className={`flex justify-between items-center text-white text-xl rounded-t-md px-4 py-2 h-fit ${modalMode === 'Accept' ? 'bg-green-700' : modalMode === 'Revert' ? 'bg-yellow-700' : 'bg-red-700'}`}>
               <h3 className='text-3xl'>{modalMode} RSVP Request?</h3>
-              <button onClick={() => window.closeModal('confirmModal')}>x</button>
+              <button onClick={
+                () => 
+                  {
+                    setModalMode(null);
+                    window.closeModal('confirmModal');
+                    setShowConfirmModal(false);
+                  }
+                }>x</button>
             </div>
             <div className="max-h-48 p-4 text-xl">
               <p>Confirm the RSVP request  of:</p>
