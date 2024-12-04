@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@next/font": "^14.2.15",
+    "@supabase/ssr": "^0.5.2",
+    "@supabase/supabase-js": "^2.46.2",
     "@ts-morph/common": "^0.25.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
