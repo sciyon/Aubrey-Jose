@@ -1,14 +1,15 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/app/utils/supabase/client';
 import { SupabaseClient } from '@supabase/supabase-js';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import { cormorant } from '@/app/fonts';
 
 declare module 'jspdf' {
   interface jsPDF {
-    autoTable: (options: any) => jsPDF;
+    autoTable: (options: AutoTableOptions) => jsPDF;
   }
 }
 
@@ -16,7 +17,7 @@ declare module 'jspdf' {
 interface RSVPData {
   id: number;
   name: string;
-  email: string;
+  phone: string;
   created_at: string;
   status: boolean;
 }
@@ -30,25 +31,33 @@ interface ModalContent {
   body: string;
 }
 
+// Add AutoTableOptions interface
+interface AutoTableOptions {
+  head: string[][];
+  body: (string | number)[][];
+  startY?: number;
+}
+
 export const Invitations = () => {
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState<ModalContent>({ header: '', body: '' });
   const [showConfirmModal, setShowConfirmModal] = useState(false)
-  const [modalConfirmContent, setModalConfirmContent] = useState<ModalConfirmContent | {}>({});
+  const [modalConfirmContent, setModalConfirmContent] = useState<ModalConfirmContent | null>(null);
   const [selectedItem, setSelectedItem] = useState<RSVPData | null>(null);
   const [modalMode, setModalMode] = useState<string | null>('');
   const [data, setData] = useState<RSVPData[]>([]);
   const [filterSettings, setFilterSettings] = useState({
-    entries: 15, // Number of entries to show
-    searchField: 'default', // Field to search in ('name', 'email', or 'default')
-    searchTerm: '', // Search term to filter by
-    sortField: 'default', // Field to sort by ('rsvp', or 'default')
-    sortOrder: '' // Order to sort by ('asc' for ascending, 'desc' for descending)
+    entries: 15, 
+    searchField: 'default', 
+    searchTerm: '',
+    sortField: 'default', 
+    sortOrder: ''
   });
   const [filteredData, setFilteredData] = useState<RSVPData[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [supabase, setSupabase] = useState<SupabaseClient | null>(null);
+  const [fullFilteredData, setFullFilteredData] = useState<RSVPData[]>([]);
 
   useEffect(() => {
     const initializeSupabase = async () => {
@@ -58,24 +67,65 @@ export const Invitations = () => {
     initializeSupabase();
   }, []);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (!supabase) return;
-    const { data, error } = await supabase.from('rsvp').select('*');
-    if (error) {
-      setModalContent({
-        header: 'Error!',
-        body: `Error fetching data.`,
-      });
-      console.error("Error fetching data:", error.message);
-      return;
+    try {
+      const { data, error } = await supabase.from('rsvp').select('*');
+      if (error) {
+        setModalContent({
+          header: 'Error!',
+          body: `Error fetching data.`,
+        });
+        console.error("Error fetching data:", error.message);
+        return;
+      }
+      setData(data);
+      setFilteredData(data);
+    } catch (error) {
+      console.error("Failed to fetch:", error);
     }
-    setData(data);
-    setFilteredData(data);
-  };
+  }, [supabase]);
 
   useEffect(() => {
-    fetchData();
+    if (supabase) {
+      fetchData();
+    }
   }, [supabase]);
+
+  useEffect(() => {
+    let filtered = [...data];
+
+    // Apply search filter
+    if (filterSettings.searchTerm) {
+      filtered = filtered.filter(item =>
+        String(item.name)
+          .toLowerCase()
+          .includes(filterSettings.searchTerm.toLowerCase())
+      );
+    }
+
+    // Apply sort filter based on RSVP status
+    if (filterSettings.sortField === 'true') {
+      filtered = filtered.filter(item => item.status === true);
+    } else if (filterSettings.sortField === 'false') {
+      filtered = filtered.filter(item => item.status === false);
+    }
+
+    // Store full filtered results
+    setFullFilteredData(filtered);
+
+    // Calculate total pages after filtering
+    const totalItems = filtered.length;
+    const newTotalPages = Math.ceil(totalItems / filterSettings.entries);
+    setTotalPages(newTotalPages);
+
+    // Paginate the filtered data
+    const startIndex = (currentPage - 1) * filterSettings.entries;
+    const endIndex = startIndex + filterSettings.entries;
+    const paginatedData = filtered.slice(startIndex, endIndex);
+
+    setFilteredData(paginatedData);
+  }, [data, filterSettings.entries, filterSettings.searchTerm, filterSettings.sortField, currentPage]);
 
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -86,8 +136,8 @@ export const Invitations = () => {
   };
 
   const showAcceptModal = (item: RSVPData, string: string) => {
-    setModalMode(string)
-    setSelectedItem(item); // Store the selected item
+    setModalMode(string);
+    setSelectedItem(item); 
     setModalConfirmContent({
       item: item
     });
@@ -225,71 +275,49 @@ export const Invitations = () => {
     setShowModal(true);
   }
 
-  const applyFilters = () => {
-    let filtered = [...data];
-  
-    // Apply search filter
-    if (filterSettings.searchTerm && filterSettings.searchField !== 'default') {
-      filtered = filtered.filter(item =>
-        (item[filterSettings.searchField as keyof RSVPData] as string)
-          .toLowerCase()
-          .includes(filterSettings.searchTerm.toLowerCase())
-      );
-    }
-  
-    // Apply sort filter based on RSVP status
-    if (filterSettings.sortField === 'true') {
-      filtered = filtered.filter(item => item.status === true);
-    } else if (filterSettings.sortField === 'false') {
-      filtered = filtered.filter(item => item.status === false);
-    }
-  
-    // Calculate total pages after filtering
-    const totalItems = filtered.length;
-    setTotalPages(Math.ceil(totalItems / filterSettings.entries));
-  
-    // Ensure the current page is within the valid range
-    if (currentPage > Math.ceil(totalItems / filterSettings.entries)) {
-      setCurrentPage(1);
-    }
-  
-    // Paginate the filtered data
-    const startIndex = (currentPage - 1) * filterSettings.entries;
-    const paginatedData = filtered.slice(startIndex, startIndex + filterSettings.entries);
-  
-    setFilteredData(paginatedData);
-  };
-  
   const handlePageChange = (newPage: number) => {
+    const startIndex = (newPage - 1) * filterSettings.entries;
+    const endIndex = startIndex + filterSettings.entries;
+    const paginatedData = fullFilteredData.slice(startIndex, endIndex);
+    setFilteredData(paginatedData);
     setCurrentPage(newPage);
   };
   
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
+      const newPage = currentPage + 1;
+      const startIndex = (newPage - 1) * filterSettings.entries;
+      const endIndex = startIndex + filterSettings.entries;
+      const paginatedData = fullFilteredData.slice(startIndex, endIndex);
+      setFilteredData(paginatedData);
+      setCurrentPage(newPage);
     }
   };
   
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
+      const newPage = currentPage - 1;
+      const startIndex = (newPage - 1) * filterSettings.entries;
+      const endIndex = startIndex + filterSettings.entries;
+      const paginatedData = fullFilteredData.slice(startIndex, endIndex);
+      setFilteredData(paginatedData);
+      setCurrentPage(newPage);
     }
   };
   
   const handleLastPage = () => {
+    const startIndex = (totalPages - 1) * filterSettings.entries;
+    const endIndex = startIndex + filterSettings.entries;
+    const paginatedData = fullFilteredData.slice(startIndex, endIndex);
+    setFilteredData(paginatedData);
     setCurrentPage(totalPages);
   };
   
   const handleFirstPage = () => {
+    const paginatedData = fullFilteredData.slice(0, filterSettings.entries);
+    setFilteredData(paginatedData);
     setCurrentPage(1);
   };
-  
-  // useEffect to apply filters whenever the currentPage changes
-  useEffect(() => {
-    applyFilters();
-  }, [filterSettings, currentPage]);
-  
-  
   
 
   const exportPDF = (dataToExport: RSVPData[], filename: string) => {
@@ -301,7 +329,7 @@ export const Invitations = () => {
     
     const tableData = dataToExport.map(item => [
       item.name,
-      item.email,
+      item.phone,
       new Date(item.created_at).toLocaleDateString(),
       item.status ? 'Accepted' : 'Pending'
     ]);
@@ -324,7 +352,6 @@ export const Invitations = () => {
     exportPDF(acceptedData, 'accepted_rsvp_requests.pdf');
   };
   
-
   window.openModal = function(modalId: string) {
     const modalElement = document.getElementById(modalId);
     if (modalElement) {
@@ -342,24 +369,23 @@ export const Invitations = () => {
     }
   }
 
-  // Close all modals when pressing ESC
   document.onkeydown = function(event) {
     event = event || window.event;
     if (event.keyCode === 27) {
       document.getElementsByTagName('body')[0].classList.remove('overflow-y-hidden');
-      let modals = document.getElementsByClassName('modal');
+      const modals = document.getElementsByClassName('modal');
       Array.prototype.slice.call(modals).forEach(i => {
         i.style.display = 'none';
       });
+      setShowModal(false);
+      setShowConfirmModal(false);
     }
-    setShowModal(false);
-    setShowConfirmModal(false);
   };
 
   return (
     <>
-      <div className="hidden container mx-auto px-4 text-oak p-6">
-        <h1 className='text-5xl text-center font-playfairNormal pb-2'>Invitation List</h1>
+      <div className="container mx-auto px-4 text-oak p-6">
+        <h1 className={`${cormorant.className} text-5xl text-center pb-2`}>Invitation List</h1>
         <div className="row flex flex-col items-center justify-center">
           <div className="col-xs-12 w-full">
             <div>
@@ -367,7 +393,7 @@ export const Invitations = () => {
               <form id='filterForm' className="flex md:flex-row flex-col text-oak text-base py-4 md:justify-between font-mono">
                 {/* Entries */}
                 <label className='pr-4'>Show by
-                  <select name='entries' id='entries' className='bg-cove rounded-lg text-center ml-2 font-mono' value={filterSettings.entries} onChange={handleFilterChange}>
+                  <select name='entries' id='entries' className='bg-cove rounded-lg text-center ml-2 font-mono bg-black text-white' value={filterSettings.entries} onChange={handleFilterChange}>
                     <option value={5}>5</option>
                     <option value={15}>15</option>
                     <option value={25}>25</option>
@@ -375,34 +401,33 @@ export const Invitations = () => {
                   </select> entries
                 </label>
 
-                {/* Search by Name or Email */}
-                <label className=''>Search by
-                  <select name='searchField' id='searchField' className='bg-cove rounded-lg text-center ml-2 font-mono' value={filterSettings.searchField} onChange={handleFilterChange}>
-                    <option value={'default'}>All</option>
-                    <option value={'name'}>Name</option>
-                    <option value={'email'}>Email</option>
-                  </select>: 
-                  <input type="text" name="searchTerm" placeholder='Input name or email here' className='bg-cove hover:bg-eucal rounded-lg mt-1 pl-2 ml-2 hover:text-white text-oak' value={filterSettings.searchTerm} onChange={handleFilterChange}></input>
+                {/* Search name */}
+                <label className=''>Search name: 
+                  <input 
+                    type="text" 
+                    name="searchTerm" 
+                    placeholder='Input name here' 
+                    className='bg-slate-500 hover:bg-eucal rounded-lg mt-1 pl-2 ml-2 hover:text-white text-oak' 
+                    value={filterSettings.searchTerm} 
+                    onChange={handleFilterChange}
+                  ></input>
                 </label>
 
                 {/* Sort by RSVP Status */}
                 <label className=''>Sort by RSVP Status 
-                  <select name='sortField' id='sortField' className='bg-cove  rounded-lg text-center ml-2 font-mono' value={filterSettings.sortField} onChange={handleFilterChange}>
+                  <select name='sortField' id='sortField' className='bg-cove  rounded-lg text-center ml-2 font-mono bg-black text-white ' value={filterSettings.sortField} onChange={handleFilterChange}>
                     <option value={'default'}>All</option>
                     <option value={'true'}>Accepted</option>
                     <option value={'false'}>Pending</option>
                   </select>
                 </label>
-
-                {/* Apply Filters Button */}
-                <button type="button" className='bg-cove rounded-lg md:ml-2 w-16 h-8 hover:bg-eucal' onClick={applyFilters}>Filter</button> 
               </form>
             </div>
             <table className="table-auto w-full border-collapse border border-gray-300 dt-responsive">
               <thead className="bg-gray-200">
                 <tr className='text-xl'>
                   <th className="px-4 py-2 whitespace-nowrap text-left">Name</th>
-                  <th className="px-4 py-2 whitespace-nowrap text-left">Email Address</th>
+                  <th className="px-4 py-2 whitespace-nowrap text-left">Phone Number</th>
                   <th className="px-4 py-2 whitespace-nowrap">Date Requested</th>
                   <th className="px-4 py-2 whitespace-nowrap">RSVP Status</th>
                   <th className="px-4 py-2 whitespace-nowrap">Actions</th>
@@ -412,23 +437,33 @@ export const Invitations = () => {
                 {filteredData.map((item, index) => (
                   <tr key={index} className='h-auto border border-gray-300 hover:bg-gray-300'>
                     <td className='pl-4'>{item.name}</td>
-                    <td className='ml-5 px-4'>{item.email}</td>
+                    <td className='ml-5 px-4'>{item.phone}</td>
                     <td className='text-center'>{new Date(item.created_at).toLocaleDateString()}</td>
-                    <td className='text-center'>{item.status ? 'Accepted' : 'Pending'}</td>
+                    <td className='text-center'>{item.status ? '✅ Accepted' : '⌛ Pending'}</td>
                     <td className='flex space-x-4 items-center justify-center'>
-                      {!item.status && <button 
-                        className='bg-green-600 hover:bg-green-300 rounded-xl text-white hover:text-black w-20' onClick={() => { showAcceptModal(item, 'Accept')}}>Accept</button>}
-                      {item.status && <button 
-                        className='bg-yellow-600 hover:bg-yellow-300 rounded-xl text-white hover:text-black w-20' onClick={() => { showAcceptModal(item, 'Revert')}}>Revert</button>}
+                      {!item.status && 
+                        <button 
+                        className='bg-green-600 hover:bg-green-300 rounded-xl text-white hover:text-black w-20' onClick={() => { showAcceptModal(item, 'Accept')}}>
+                          Accept
+                        </button>
+                      }
+                      {item.status && 
+                        <button 
+                          className='bg-yellow-600 hover:bg-yellow-300 rounded-xl text-white hover:text-black w-20' onClick={() => { showAcceptModal(item, 'Revert')}}>
+                          Revert
+                        </button>
+                      }
                       <button 
                         className='bg-red-600 hover:bg-red-300 rounded-xl text-white hover:text-black w-20' 
-                        onClick={() => { showAcceptModal(item, 'Delete')}}>Delete</button>
+                        onClick={() => { showAcceptModal(item, 'Delete')}}>
+                        Delete
+                      </button>
                     </td> 
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="flex flex-row font-mono space-x-9 items-center h-12">
+            <div className="flex flex-row font-mono space-x-9 items-center h-12 pt-8">
               <div className="space-x-2 flex items-center">
                 <p className='pr-6'>Showing page {currentPage} of {totalPages}</p>
                 {currentPage > 1 && (
@@ -443,8 +478,8 @@ export const Invitations = () => {
               </div>
               <div className="flex flex-row items-center justify-center">
                 <p>Export as PDF:</p>
-                <button className='text-lg bg-oak text-white rounded-lg px-2 mr-2' onClick={exportAllRSVPs}>All</button>
-                <button className='text-lg bg-oak text-white rounded-lg px-2' onClick={exportAcceptedRSVPs}>Accepted</button>
+                <button className='text-lg bg-black text-white rounded-lg px-2 mr-2' onClick={exportAllRSVPs}>All</button>
+                <button className='text-lg bg-black text-white rounded-lg px-2' onClick={exportAcceptedRSVPs}>Accepted</button>
               </div>
             </div>
           </div>
@@ -476,7 +511,7 @@ export const Invitations = () => {
             <div className="max-h-48 p-4 text-xl">
               <p>Confirm the RSVP request  of:</p>
               <p>Name: <span className='font-mono'>{selectedItem.name}</span></p>
-              <p>Email: <span className='font-mono'>{selectedItem.email}</span></p>
+              <p>Phone: <span className='font-mono'>{selectedItem.phone}</span></p>
             </div>
             <div className="px-4 py-2 border-t border-t-gray-500 flex justify-end items-center space-x-4">
               <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700 transition" 
@@ -495,7 +530,15 @@ export const Invitations = () => {
               }
               
               >Confirm {modalMode}</button>
-              <button className="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-red-700 transition" onClick={() => window.closeModal('confirmModal')}>Cancel</button>
+              <button className="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-red-700 transition" 
+                onClick={
+                () => 
+                  {
+                    setModalMode(null);
+                    window.closeModal('confirmModal');
+                    setShowConfirmModal(false);
+                  }
+                }>Cancel</button>
             </div>
           </div>
         </div>

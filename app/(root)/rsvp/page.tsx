@@ -203,8 +203,8 @@ const RSVP = () => {
       
       {showModal && (
         <div id="modal" className={`fixed z-50 inset-0 bg-gray-500 bg-opacity-60 overflow-y-auto h-full w-full px-4 modal block`}>
-        <div className={`relative top-40 mx-auto shadow-xl rounded-md  max-w-md font-pjs ${modalContent.header === 'Success!' ? 'bg-green-400' : 'bg-red-400'}`}>
-        <div className={`flex justify-between items-center text-white text-xl rounded-t-md px-4 py-2 ${modalContent.header === 'Success!' ? 'bg-green-700' : 'bg-red-500'}`}>
+        <div className={`relative top-40 mx-auto shadow-xl rounded-md  max-w-md font-pjs ${modalContent.header === 'Success' ? 'bg-green-400' : 'bg-red-400'}`}>
+        <div className={`flex justify-between items-center text-white text-xl rounded-t-md px-4 py-2 ${modalContent.header === 'Success' ? 'bg-green-700' : 'bg-red-500'}`}>
             <h3 className='text-black font-crimson text-2xl font-bold'>{modalContent.header}</h3>
             <button onClick={() => window.closeModal('modal')}>x</button>
           </div>
@@ -212,7 +212,7 @@ const RSVP = () => {
             <p>{modalContent.body}</p>
           </div>
           <div className="px-4 py-2 border-t border-t-gray-500 flex justify-end items-center space-x-4">
-            <button className="bg-red-500 text-black px-4 py-2 rounded-md hover:bg-red-300 transition text-2xl font-montserrat font-semibold" onClick={() => window.closeModal('modal')}>Close</button>
+            <button className="bg-red-300 text-black px-4 py-2 rounded-md hover:bg-red-300 transition text-2xl font-montserrat font-semibold" onClick={() => window.closeModal('modal')}>Close</button>
           </div>
         </div>
       </div>
