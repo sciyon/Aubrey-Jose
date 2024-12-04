@@ -34,7 +34,7 @@ interface AutoTableOptions {
   startY?: number;
 }
 
-export const Invitations = () => {
+const Invitations = () => {
   const [showModal, setShowModal] = useState(false)
   const [modalContent, setModalContent] = useState<ModalContent>({ header: '', body: '' });
   const [showConfirmModal, setShowConfirmModal] = useState(false)
