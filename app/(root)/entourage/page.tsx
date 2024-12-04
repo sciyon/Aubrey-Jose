@@ -3,15 +3,15 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className={`${cormorant.className} flex flex-col items-center lg:mt-6 p-3 lg:p-0`}>
+    <div className={`${cormorant.className} flex flex-col items-center lg:mt-6 p-3 lg:p-0 w-full`}>
 
       <div className="flex flex-row text-center lg:gap-12 gap-2 text-2xl">
         <div className="w-1/2">
-          <h1 className='lg:text-5xl text-2xl pt-4'><strong>Aubrey Antepuesto</strong></h1>
+          <h1 className='lg:text-5xl text-2xl pt-4 font-medium'>Aubrey Antepuesto</h1>
           <h1 className='lg:text-4xl text-xl'>Bride</h1>
         </div>
         <div className="w-1/2">
-          <h1 className='lg:text-5xl text-2xl pt-4'><strong>Jose Alberto Z. Dolor</strong></h1>
+          <h1 className='lg:text-5xl text-2xl pt-4 font-medium'>Jose Alberto Z. Dolor</h1>
           <h1 className='lg:text-4xl text-xl'>Groom</h1>
         </div>
       </div>
@@ -31,54 +31,84 @@ const page = () => {
       <h1 className='name2'>Rev. Fr. Reynaldo I. Pernia</h1>
       <h1 className='title2'>Officiant</h1>
 
-      <h1 className='title3'>Principal Sponsors</h1>
-      <div className="flex flex-row lg:gap-12 gap-3 name3">
-        <div className="w-1/2  text-right ">
-          <h3>Mr. Noel L. De Castro</h3>
-          <h3>Mr. Primo C. Dolor Jr</h3>
-          <h3>Atty Procopio C. Lao VII</h3>
-          <h3>Mr. Raymundo C. Dolor</h3>
-          <h3>Mr. Fancisco S. Manlangit</h3>
-          <h3>Mr. Renato L. Zapatos</h3>
-          <h3>Dr. Jose O. Robillos</h3>
-          <h3>Mr. Francis Alberto D. Fabe</h3>
-          <h3>Mr. Arturo A. Sanchez</h3>
-          <h3>Mr. Joseph Anthony Manongas </h3>
-          <h3>Mr. Reynaldo Ramirez</h3>
-          <h3>Mr. Johnny M. Indus </h3>
-          <h3>Mr. Erwin Cabural</h3>
-          <h3>Engr. Dennis C. Apatan</h3>
-          <h3>Mr. Villanueva</h3>
-          <h3>Mr. Jingle Dapin</h3>
-
-
-        </div>
-        <div className="w-1/2  text-left ">
-          <h3>Mrs. Gemma T. De Castro</h3>
-          <h3>Mrs. Cynthia S. Dolor</h3>
-          <h3>Ms. Nancy B. Tumala</h3>
-          <h3>Mrs. Leonila G. Dolor</h3>
-          <h3>Engr. Teresa Z. Manlangit</h3>
-          <h3>Mrs. Artemia A. Zapatos</h3>
-          <h3>Mrs. Charry E. Robillos</h3>
-          <h3>Mrs. Seny Fe B. Fabe</h3>
-          <h3>Ms. Daisylain B. Badilla</h3>
-          <h3>Ms. Marycris Q. Manongas</h3>
-          <h3>Mrs. Angeline L. Ramirez</h3>
-          <h3>Mrs. Marilou M. Indus</h3>
-          <h3>Mrs. Sharon Cabural</h3>
-          <h3>Mrs. Bernadette B. Apatan</h3>
-          <h3>Mrs. Nacille Villanueva</h3>
-          <h3>Ms. Xenia M. Nazareno</h3>
-        </div>
+      <h1 className='title2 pt-4'>Principal Sponsors</h1>
+      <div className="">
+        <table className="w-full">
+          <tbody className='align-top text-base lg:text-4xl'>
+            <tr>
+              <td className="text-right pr-4">Mr. Noel L. De Castro</td>
+              <td className="text-left pl-4">Mrs. Gemma T. De Castro</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Primo C. Dolor Jr</td>
+              <td className="text-left pl-4">Mrs. Cynthia S. Dolor</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Atty Procopio C. Lao VII</td>
+              <td className="text-left pl-4">Ms. Nancy B. Tumala</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Raymundo C. Dolor</td>
+              <td className="text-left pl-4">Mrs. Leonila G. Dolor</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Fancisco S. Manlangit</td>
+              <td className="text-left pl-4">Engr. Teresa Z. Manlangit</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Renato L. Zapatos</td>
+              <td className="text-left pl-4">Mrs. Artemia A. Zapatos</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Dr. Jose O. Robillos</td>
+              <td className="text-left pl-4">Mrs. Charry E. Robillos</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Francis Alberto D. Fabe</td>
+              <td className="text-left pl-4">Mrs. Seny Fe B. Fabe</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Arturo A. Sanchez</td>
+              <td className="text-left pl-4">Ms. Daisylain B. Badilla</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Joseph Anthony Manongas</td>
+              <td className="text-left pl-4">Ms. Marycris Q. Manongas</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Reynaldo Ramirez</td>
+              <td className="text-left pl-4">Mrs. Angeline L. Ramirez</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Johnny M. Indus</td>
+              <td className="text-left pl-4">Mrs. Marilou M. Indus</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Erwin Cabural</td>
+              <td className="text-left pl-4">Mrs. Sharon Cabural</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Engr. Dennis C. Apatan</td>
+              <td className="text-left pl-4">Mrs. Bernadette B. Apatan</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Villanueva</td>
+              <td className="text-left pl-4">Mrs. Nacille Villanueva</td>
+            </tr>
+            <tr>
+              <td className="text-right pr-4">Mr. Jingle Dapin</td>
+              <td className="text-left pl-4">Ms. Xenia M. Nazareno</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div className="flex flex-row text-center gap-12">
-        <div className="">
+      <div className="flex flex-row text-center lg:gap-12 gap-3">
+        <div className="w-1/2">
           <h1 className='name2'>Lady Jane N. Peñaflor</h1>
           <h1 className='title2'>Matron of Honor</h1>
         </div>
-        <div className="">
+        <div className="w-1/2">
           <h1 className='name2'>Keith Christian Maerly Bañaga</h1>
           <h1 className='title2'>Best Man</h1>
         </div>

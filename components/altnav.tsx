@@ -24,8 +24,10 @@ const Altnav = () => {
   const pathname = usePathname()
 
   return (
-    <div className='flex lg:flex-col flex-row justify-between items-center max-w-[1240px] mx-auto px-4 text-black relative z-50'>
-      <Link href='/' className={`${cormorant.className} text-3xl py-3 lg:text-7xl lg:pt-6`}>Aubrey & Jose</Link>
+    <div className='flex lg:flex-col flex-row justify-between items-center min-w-max px-4 text-black relative z-50'>
+      <Link href='/' className={`${cormorant.className} text-3xl py-3 lg:text-7xl lg:pt-6`}>
+        Aubrey & Jose
+      </Link>
       <ul className='hidden md:flex flex-row justify-center font-crimson gap-12 text-2xl pt-2'>
         {navItems.map(item => (
           <Link
@@ -39,7 +41,7 @@ const Altnav = () => {
       </ul>
 
       <div onClick={handleNav} className='block md:hidden'>
-        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} className='ml-auto' />}
       </div>
 
       <ul

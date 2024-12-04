@@ -4,9 +4,11 @@ import Altnav from '../../components/altnav';
 
 const layout = ({ children }: Readonly<{ children: React.ReactNode }>) => {
   return (
-    <main className='font-work-sans'>
+    <main className='font-work-sans min-h-screen flex flex-col'>
         <Altnav />
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
         <Footer />
     </main>
   )

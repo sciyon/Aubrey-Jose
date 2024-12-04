@@ -5,10 +5,10 @@ import React from 'react'
 const footer = () => {
   return (
     <div className="w-full font-crimson flex flex-row px-5 pb-5">
-      <div className="pr-8">
-        <p>Made by</p>
-        <p className="text-2xl font-bold">Erwin Antepuesto</p>
-        <p>Want a personalised website? Contact me.</p>
+      <div className="lg:pr-8 pr-2">
+        <p className="lg:text-2xl text-xs">Made by</p>
+        <p className="lg:text-2xl text-sm font-bold">Erwin Antepuesto</p>
+        <p className="lg:text-lg text-xs">Want a personalised website? Contact me.</p>
       </div>
       <div>
         <div className="flex flex-row gap-2">
@@ -16,8 +16,8 @@ const footer = () => {
           <FaFacebookMessenger style={{ width: '30px', height: '30px' }} />
           <FaLinkedin style={{ width: '30px', height: '30px' }} />
         </div>
-        <p>antepuesto.erwin@gmail.com</p>
-        <p className="m-0 p-0">09171038539</p>
+        <p className="lg:text-lg text-xs">antepuesto.erwin@gmail.com</p>
+        <p className="m-0 p-0 lg:text-lg text-xs">09171038539</p>
       </div>
     </div>
   )
