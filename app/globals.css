@@ -56,7 +56,7 @@ crimson {
 .group {
   display: flex;
   will-change: transform;
-  animation: scrolling 20s linear infinite;
+  animation: scrolling 30s linear infinite;
 }
 
 .default-text{
@@ -69,7 +69,7 @@ crimson {
   }
   /* Default for larger screens */
   100% {
-    transform: translateX(-100%); /* For large screens */
+    transform: translateX(-150%); /* For large screens */
   }
 }
 
@@ -80,12 +80,11 @@ crimson {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-100%); /* For small screens */
+      transform: translateX(-3000%); /* Adjusted for faster speed */
     }
   }
-  /* Adjust the animation duration here */
   .group {
-    animation: scrolling 30s linear infinite; /* Slower animation */
+    animation: scrolling 300s linear infinite; /* Increased duration for more photos */
   }
 }
 

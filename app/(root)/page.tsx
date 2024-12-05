@@ -4,7 +4,7 @@ import Invite from '@/components/invite';
 const page = () => {
   return (
     <div className='lg:pt-6 flex flex-col items-center z-0 '>
-      <div className="carousel z-0">
+      <div className="carousel z-0 flex-none">
         <div className="group z-0">
             <div className="card">
                 <img 
@@ -108,25 +108,31 @@ const page = () => {
                     style={{ height: '100%'}}
                 />
             </div>
-            <div className="card" >
+            <div className="card">
+                <img 
+                    src='/carousel/9.jpg'
+                    style={{ height: '100%'}}
+                />
+            </div>
+            <div className="card z-0" >
                 <img 
                     src='/carousel/1.JPG'
                     style={{ height: '100%'}}
                 />
             </div>
-            <div className="card">
+            <div className="card z-0">
                 <img 
                     src='/carousel/2.JPG'
                     style={{ height: '100%'}}
                 />
             </div>
-            <div className="card">
+            <div className="card z-0">
                 <img 
                     src='/carousel/3.jpg'
                     style={{ height: '100%'}}
                 />
             </div>
-            <div className="card" >
+            <div className="card z-0" >
                 <img 
                     src='/carousel/4.JPG'
                     style={{ height: '100%'}}
@@ -169,6 +175,7 @@ const page = () => {
       <h1 className="lg:text-2xl text-xl font-crimson lg:pt-8 pt-4">January 18, 2025</h1>
       <h1 className="lg:text-2xl text-xl font-crimson pb-8">Saturday, 1:00 PM</h1>
       <Invite />
+      <h1 className="pb-5"></h1>
     </div>
   )
 }
