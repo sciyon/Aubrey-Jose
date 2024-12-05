@@ -1,4 +1,4 @@
-import { FaFacebook, FaFacebookMessenger } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import React from 'react'
 import Link from "next/link";
