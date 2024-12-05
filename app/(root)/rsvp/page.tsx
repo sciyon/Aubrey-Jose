@@ -177,12 +177,28 @@ const RSVP = () => {
   return (
     <div className={`${cormorant.className} flex flex-col items-center justify-center text-oak p-5 w-full font-playfairNormal`}>
       
-      <div className="font-playfairNormal font-medium md:text-3xl text-2xl text-center lg:py-8 pb-2 px-4">
+      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+        Hi there, good day!
+      </div>
+      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+        We are inviting you to our wedding this upcoming January 18, 2025. 
+      </div>
+      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+        Kindly RSVP on or before December 18, 2024.
+      </div>
+      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+        Kindly scroll through the website  for details. Thank you!
+      </div>
+      <div className="font-crimson lg:text-2xl text-2xl text-center b-2 px-4 w-1/2">
+        This invitation is for one person only, if you have an add-on, kindly ask the couple ahead of time as seats are limited.
+      </div>
+
+      <div className="font-crimson lg:text-2xl text-2xl text-center pt-8 pb-2 px-4 w-1/2">
       To create an RSVP request, please input your details below.
       </div>
 
       <form className='flex flex-col justify-center items-center w-full' onSubmit={handleSubmit}>
-        <label htmlFor="fullName" className='text-xl md:text-3xl font-playfairNormal lg:pt-8 pt-2'>Full Name</label>
+        <label htmlFor="fullName" className='text-xl md:text-3xl font-playfairNormal lg:pt-4 pt-2'>Full Name</label>
         <input 
           type="text" 
           id="fullName"
@@ -190,7 +206,7 @@ const RSVP = () => {
           onChange={(e) => setName(e.target.value)}
           className='h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-playfairNormal font-medium md:text-2xl text-lg text-center'
         />
-        <label htmlFor="emailAddress" className='text-xl md:text-3xl font-playfairNormal lg:pt-8 pt-4'>Phone Number</label>
+        <label htmlFor="emailAddress" className='text-xl md:text-3xl font-playfairNormal lg:pt-4 pt-2'>Phone Number</label>
         <input 
           type="text" 
           id="phone"
