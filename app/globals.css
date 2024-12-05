@@ -80,8 +80,12 @@ crimson {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-500%); /* For small screens */
+      transform: translateX(-100%); /* For small screens */
     }
+  }
+  /* Adjust the animation duration here */
+  .group {
+    animation: scrolling 30s linear infinite; /* Slower animation */
   }
 }
 
