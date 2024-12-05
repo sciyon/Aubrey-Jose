@@ -1,6 +1,7 @@
 import { FaFacebook, FaFacebookMessenger } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import React from 'react'
+import Link from "next/link";
 
 const footer = () => {
   return (
@@ -12,9 +13,8 @@ const footer = () => {
       </div>
       <div>
         <div className="flex flex-row gap-2">
-          <FaFacebook style={{ width: '30px', height: '30px' }} />
-          <FaFacebookMessenger style={{ width: '30px', height: '30px' }} />
-          <FaLinkedin style={{ width: '30px', height: '30px' }} />
+          <Link href='https://www.facebook.com/erwin.nazareno.2024'><FaFacebook style={{ width: '30px', height: '30px' }} /></Link>
+          <Link href='https://www.linkedin.com/in/erwinantepuesto/'><FaLinkedin style={{ width: '30px', height: '30px' }} /></Link>
         </div>
         <p className="lg:text-lg text-xs">antepuesto.erwin@gmail.com</p>
         <p className="m-0 p-0 lg:text-lg text-xs">09171038539</p>
