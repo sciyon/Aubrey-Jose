@@ -1,6 +1,28 @@
 import { cormorant } from '@/app/fonts'
 import React from 'react'
 
+const sponsors = {
+  'Mr. Reynaldo B. Ramirez': 'Mrs. Angeline L. Ramirez',
+  'Mr. Johnny M. Indus': 'Mrs. Marilou M. Indus',
+  'Mr. Erwin Cabural': 'Mrs. Sharon Cabural',
+  'Engr. Dennis C. Apatan': 'Mrs. Bernadette B. Apatan',
+  'Mr. Mariano A. Villanueva II': 'Mrs. Nacille Consuelo V. Villanueva',
+  'Mr. Jingle Dapin': 'Ms. Xenia M. Nazareno',
+  'Mr. Noel L. De Castro': 'Mrs. Gemma T. De Castro',
+  'Atty Procopio C. Lao VII': 'Ms. Nancy B. Tumala',
+  'Mr. Primo C. Dolor Jr': 'Mrs. Cynthia S. Dolor',
+  'Mr. Raymundo C. Dolor': 'Mrs. Leonila G. Dolor',
+  'Mr. Fancisco S. Manlangit': 'Engr. Teresa Z. Manlangit',
+  'Mr. Renato L. Zapatos': 'Mrs. Artemia A. Zapatos',
+  'Dr. Jose O. Robillos': 'Mrs. Charry E. Robillos',
+  'Mr. Francis Alberto D. Fabe': 'Mrs. Seny Fe B. Fabe',
+  'Mr. Arturo A. Sanchez': 'Ms. Daisylain B. Badilla',
+  'Mr. Joseph Anthony Manongas': 'Mrs. Marycris Q. Manongas',
+  'Mr. Virgilio Q. Yu': 'Mrs. Sarah A. Yu',
+  'Mr. Luis A. Jainga': 'Mrs. Cleopatra B. Jainga',
+  'Mr. Nestor M. Repolledo': 'Ms. Maria Lucy R. Cabalit'
+};
+
 const page = () => {
   return (
     <div className={`${cormorant.className} flex flex-col items-center lg:mt-6 p-3 lg:p-0 w-full`}>
@@ -35,70 +57,12 @@ const page = () => {
       <div className="">
         <table className="w-full">
           <tbody className='align-top text-base lg:text-4xl'>
-            <tr>
-              <td className="text-right pr-4">Mr. Noel L. De Castro</td>
-              <td className="text-left pl-4">Mrs. Gemma T. De Castro</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Primo C. Dolor Jr</td>
-              <td className="text-left pl-4">Mrs. Cynthia S. Dolor</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Atty Procopio C. Lao VII</td>
-              <td className="text-left pl-4">Ms. Nancy B. Tumala</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Raymundo C. Dolor</td>
-              <td className="text-left pl-4">Mrs. Leonila G. Dolor</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Fancisco S. Manlangit</td>
-              <td className="text-left pl-4">Engr. Teresa Z. Manlangit</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Renato L. Zapatos</td>
-              <td className="text-left pl-4">Mrs. Artemia A. Zapatos</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Dr. Jose O. Robillos</td>
-              <td className="text-left pl-4">Mrs. Charry E. Robillos</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Francis Alberto D. Fabe</td>
-              <td className="text-left pl-4">Mrs. Seny Fe B. Fabe</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Arturo A. Sanchez</td>
-              <td className="text-left pl-4">Ms. Daisylain B. Badilla</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Joseph Anthony Manongas</td>
-              <td className="text-left pl-4">Ms. Marycris Q. Manongas</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Reynaldo Ramirez</td>
-              <td className="text-left pl-4">Mrs. Angeline L. Ramirez</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Johnny M. Indus</td>
-              <td className="text-left pl-4">Mrs. Marilou M. Indus</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Erwin Cabural</td>
-              <td className="text-left pl-4">Mrs. Sharon Cabural</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Engr. Dennis C. Apatan</td>
-              <td className="text-left pl-4">Mrs. Bernadette B. Apatan</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Villanueva</td>
-              <td className="text-left pl-4">Mrs. Nacille Villanueva</td>
-            </tr>
-            <tr>
-              <td className="text-right pr-4">Mr. Jingle Dapin</td>
-              <td className="text-left pl-4">Ms. Xenia M. Nazareno</td>
-            </tr>
+            {Object.entries(sponsors).map(([male, female]) => (
+              <tr key={male}>
+                <td className="text-right pr-4">{male}</td>
+                <td className="text-left pl-4">{female}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
