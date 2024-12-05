@@ -8,7 +8,7 @@ const page = () => {
       <span className={`${homeMadeApple.className} lg:hidden text-3xl mb-5`}>Saturday,</span>
 
       <div className="flex lg:flex-row flex-col p-4 w-full">
-        <div className="lg:w-1/2 flex">
+        <div className="lg:w-1/2 flex justify-center items-center">
           <Image 
             src='/church.jpg'
             alt='wedding cake'
@@ -41,7 +41,7 @@ const page = () => {
       </div>
 
       <div className="flex lg:flex-row flex-col p-4 w-full">
-        <div className="lg:w-1/2 flex">
+        <div className="lg:w-1/2 flex justify-center items-center">
           <Image 
             src='/costa.jpg'
             alt='wedding cake'
