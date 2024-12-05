@@ -20,7 +20,7 @@ const page = () => {
               height={400} // Set the desired height
               className='h-64 w-40 lg:h-3/4 lg:w-80 lg:ml-12'
             />
-            <h1 className='lg:text-4xl text-2xl font-crimson'>Filipiniana</h1>
+            <h1 className='lg:text-4xl text-2xl font-crimson pb-5'>Filipiniana</h1>
           </div>
           <div className="flex flex-col items-center">
             <Image 
@@ -28,7 +28,7 @@ const page = () => {
               alt='women outfit'
               width={400} // Set the desired width
               height={400} // Set the desired height
-              className='h-64 w-40 lg:h-3/4 lg:w-96'
+              className='h-64 w-4/5 lg:h-3/4 lg:w-96'
             />
             <h1 className='lg:text-4xl text-2xl text-center font-crimson'>Barong and Black Slacks</h1>
           </div>
