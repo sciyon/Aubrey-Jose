@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { createClient } from '@/app/utils/supabase/client';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { cormorant } from '@/app/fonts'
+import Invite from '@/components/invite';
 
 
 declare global {
@@ -193,13 +194,13 @@ const RSVP = () => {
         - Aubrey & Jose
       </div>
 
+      <Invite />
       <div className="font-crimson lg:text-2xl text-sm text-center pt-8 pb-2 px-4 lg:w-1/2">
       To create an RSVP request, please input your details below.
       </div>
       <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
         Kindly see the website for details. Thank you!
       </div>
-
       <form className='flex flex-col justify-center items-center w-full' onSubmit={handleSubmit}>
         <label htmlFor="fullName" className='text-xl md:text-3xl lg:pt-4 pt-2'>Full Name</label>
         <input 
@@ -215,9 +216,10 @@ const RSVP = () => {
           id="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className='lg:h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-crimson font-medium lg:text-xl text-sm text-center lg:mb-12 mb-5'
+          className='lg:h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-crimson font-medium lg:text-xl text-sm text-center lg:mb-5 mb-5'
         />
         <button type="submit" className='font-crimson lg:h-12 h-10 lg:w-56 w-24 bg-oak text-white bg-black rounded-2xl lg:text-2xl text-sm mb-5'>RSVP</button>
+        
       </form>
       
       {showModal && (

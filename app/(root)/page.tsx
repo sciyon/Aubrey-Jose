@@ -1,4 +1,5 @@
 import { cormorant } from '@/app/fonts';
+import Invite from '@/components/invite';
 
 const page = () => {
   return (
@@ -166,7 +167,8 @@ const page = () => {
       <h1 className="lg:text-3xl text-xl font-crimson lg:pt-10 pt-5">HOLY CROSS PARISH</h1>
       <h1 className="lg:text-3xl text-xl font-crimson">TALAIRON, OROQUIETA CITY</h1>
       <h1 className="lg:text-2xl text-xl font-crimson lg:pt-8 pt-4">January 18, 2025</h1>
-      <h1 className="lg:text-2xl text-xl font-crimson pb-24">Saturday, 1:00 PM</h1>
+      <h1 className="lg:text-2xl text-xl font-crimson pb-8">Saturday, 1:00 PM</h1>
+      <Invite />
     </div>
   )
 }
