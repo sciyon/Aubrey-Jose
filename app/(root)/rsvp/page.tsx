@@ -181,20 +181,23 @@ const RSVP = () => {
         Hi there, good day!
       </div>
       <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
-        We are inviting you to our wedding this upcoming January 18, 2025. 
+        We are inviting you to our wedding this coming <strong>January 18, 2025</strong>.
       </div>
       <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
-        Kindly RSVP on or before December 18, 2024.
+        Kindly RSVP on or before <strong>December 18, 2024</strong>.
       </div>
       <div className="font-crimson lg:text-2xl text-sm text-center b-2 px-4 lg:w-1/2">
-        This invitation is for one person only, if you have an add-on, kindly ask the couple ahead of time as seats are limited.
+        This invitation is for one person only. If you have an add-on, kindly ask the couple ahead of time as seats are only limited.
       </div>
-      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
-        Kindly scroll through the website  for details. Thank you!
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2 font-bold">
+        - Aubrey & Jose
       </div>
 
       <div className="font-crimson lg:text-2xl text-sm text-center pt-8 pb-2 px-4 lg:w-1/2">
       To create an RSVP request, please input your details below.
+      </div>
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
+        Kindly see the website for details. Thank you!
       </div>
 
       <form className='flex flex-col justify-center items-center w-full' onSubmit={handleSubmit}>

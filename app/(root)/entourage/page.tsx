@@ -4,6 +4,8 @@ import React from 'react'
 const sponsors = {
   'Mr. Reynaldo B. Ramirez': 'Mrs. Angeline L. Ramirez',
   'Mr. Johnny M. Indus': 'Mrs. Marilou M. Indus',
+  'Dr. Jonathan S. dela Peña':'Dr. Ingrid G. Racoma',
+  'Engr. Richmond A. Sobong':'Mrs. Barba Fer S. Sobong',
   'Mr. Erwin Cabural': 'Mrs. Sharon Cabural',
   'Engr. Dennis C. Apatan': 'Mrs. Bernadette B. Apatan',
   'Mr. Mariano A. Villanueva II': 'Mrs. Nacille Consuelo V. Villanueva',
@@ -17,7 +19,7 @@ const sponsors = {
   'Dr. Jose O. Robillos': 'Mrs. Charry E. Robillos',
   'Mr. Francis Alberto D. Fabe': 'Mrs. Seny Fe B. Fabe',
   'Mr. Arturo A. Sanchez': 'Ms. Daisylain B. Badilla',
-  'Mr. Joseph Anthony Manongas': 'Mrs. Marycris Q. Manongas',
+  'Mr. Anthony Joe Manongas': 'Mrs. Marycris Q. Manongas',
   'Mr. Virgilio Q. Yu': 'Mrs. Sarah A. Yu',
   'Mr. Luis A. Jainga': 'Mrs. Cleopatra B. Jainga',
   'Mr. Nestor M. Repolledo': 'Ms. Maria Lucy R. Cabalit'
@@ -78,6 +80,21 @@ const page = () => {
         <div className=" w-1/3">
           <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Best Man</h1>
           <h1 className='lg:text-4xl text-lg font-crimson font-light'>Keith Christian Maerly Bañaga</h1>
+        </div>
+      </div>
+
+      <div className="flex flex-row text-center lg:gap-12 gap-3 pt-5 w-full  items-start justify-center">
+        <div className=" w-1/3">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Bridesmaids</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Aryen Gem T. Neri</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Marie Novie G. Triambulo</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Apple Mae Q. Solis</h1>
+        </div>
+        <div className=" w-1/3">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Groomsmen</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>John Renzo C. Tonggao</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Daniel James Z. Dolor</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Jude Arom F. Dominguez</h1>
         </div>
       </div>
 
