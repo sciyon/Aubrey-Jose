@@ -29,6 +29,12 @@ const page = () => {
                     style={{ height: '100%'}}
                 />
             </div>
+            <div className="card">
+                <img 
+                    src='/carousel/9.jpg'
+                    style={{ height: '100%'}}
+                />
+            </div>
             <div className="card z-0" >
                 <img 
                     src='/carousel/1.JPG'

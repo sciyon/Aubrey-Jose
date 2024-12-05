@@ -177,44 +177,44 @@ const RSVP = () => {
   return (
     <div className={`${cormorant.className} flex flex-col items-center justify-center text-oak p-5 w-full font-playfairNormal`}>
       
-      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
         Hi there, good day!
       </div>
-      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
         We are inviting you to our wedding this upcoming January 18, 2025. 
       </div>
-      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
         Kindly RSVP on or before December 18, 2024.
       </div>
-      <div className="font-crimson lg:text-2xl text-2xl text-center pb-2 px-4 w-1/2">
-        Kindly scroll through the website  for details. Thank you!
-      </div>
-      <div className="font-crimson lg:text-2xl text-2xl text-center b-2 px-4 w-1/2">
+      <div className="font-crimson lg:text-2xl text-sm text-center b-2 px-4 lg:w-1/2">
         This invitation is for one person only, if you have an add-on, kindly ask the couple ahead of time as seats are limited.
       </div>
+      <div className="font-crimson lg:text-2xl text-sm text-center pb-2 px-4 lg:w-1/2">
+        Kindly scroll through the website  for details. Thank you!
+      </div>
 
-      <div className="font-crimson lg:text-2xl text-2xl text-center pt-8 pb-2 px-4 w-1/2">
+      <div className="font-crimson lg:text-2xl text-sm text-center pt-8 pb-2 px-4 lg:w-1/2">
       To create an RSVP request, please input your details below.
       </div>
 
       <form className='flex flex-col justify-center items-center w-full' onSubmit={handleSubmit}>
-        <label htmlFor="fullName" className='text-xl md:text-3xl font-playfairNormal lg:pt-4 pt-2'>Full Name</label>
+        <label htmlFor="fullName" className='text-xl md:text-3xl lg:pt-4 pt-2'>Full Name</label>
         <input 
           type="text" 
           id="fullName"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className='h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-playfairNormal font-medium md:text-2xl text-lg text-center'
+          className='lg:h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-crimson font-medium lg:text-xl text-sm text-center'
         />
-        <label htmlFor="emailAddress" className='text-xl md:text-3xl font-playfairNormal lg:pt-4 pt-2'>Phone Number</label>
+        <label htmlFor="emailAddress" className='text-xl md:text-3xl lg:pt-4 pt-2'>Phone Number</label>
         <input 
           type="text" 
           id="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className='h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-playfairNormal font-medium md:text-2xl text-lg text-center lg:mb-12 mb-5'
+          className='lg:h-10 w-3/5 md:w-5/12 border-2 border-oak rounded-lg pl-2 font-crimson font-medium lg:text-xl text-sm text-center lg:mb-12 mb-5'
         />
-        <button type="submit" className='font-pjs h-12 lg:w-56 w-24 bg-oak text-white bg-black rounded-2xl lg:text-2xl text-xl font-crimson mb-5'>RSVP</button>
+        <button type="submit" className='font-crimson lg:h-12 h-10 lg:w-56 w-24 bg-oak text-white bg-black rounded-2xl lg:text-2xl text-sm mb-5'>RSVP</button>
       </form>
       
       {showModal && (

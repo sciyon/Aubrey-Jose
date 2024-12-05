@@ -26,72 +26,75 @@ const sponsors = {
 const page = () => {
   return (
     <div className={`${cormorant.className} flex flex-col items-center lg:mt-6 p-3 lg:p-0 w-full`}>
+      <h1 className='lg:text-4xl text-xl font-bold'>WEDDING ENTOURAGE</h1>
 
-      <div className="flex flex-row text-center lg:gap-12 gap-2 text-2xl">
-        <div className="w-1/2">
-          <h1 className='lg:text-5xl text-2xl pt-4 font-medium'>Aubrey Antepuesto</h1>
-          <h1 className='lg:text-4xl text-xl'>Bride</h1>
+      <h1 className='lg:text-3xl text-lg pt-5 font-bold'>Officiant</h1>
+      <h1 className='font-crimson lg:text-4xl text-lg font-light text-center'>Rev. Fr. Reynaldo I. Pernia</h1>
+
+      <div className="flex flex-row text-center items-center justify-center lg:gap-6 gap-2 text-2xl lg:px-12 w-full">
+        <div className="lg:w-1/4 w-1/2 p-3">
+          <h1 className='lg:text-3xl text-lg lg:pt-4 font-bold'>Bride</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Aubrey Antepuesto</h1>
         </div>
-        <div className="w-1/2">
-          <h1 className='lg:text-5xl text-2xl pt-4 font-medium'>Jose Alberto Z. Dolor</h1>
-          <h1 className='lg:text-4xl text-xl'>Groom</h1>
+        <div className="lg:w-1/4 w-1/2 p-3">
+          <h1 className='lg:text-3xl text-xl lg:pt-4 font-bold'>Groom</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Jose Alberto Z. Dolor</h1>
         </div>
       </div>
 
-      <div className="flex flex-row lg:gap-16 gap-2  text-center">
-        <div className="name2 w-1/2">
+      <div className="flex flex-row items-start justify-center lg:gap-16 gap-2 w-full text-center">
+        <div className="lg:text-4xl text-lg font-crimson font-light p-3 lg:w-1/4 w-1/2 ">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Parents of the Bride</h1>
           <h1>Engr. Erwin U. Bentulan</h1>
           <h1>Mrs. Ann N. Bentulan</h1>
         </div>
-        <div className="name2 w-1/2">
+        <div className="lg:text-4xl text-lg font-crimson font-light p-3 lg:w-1/4 w-1/2 ">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Parents of the Groom</h1>
           <h1>Mr. Alberto C. Dolor</h1>
           <h1>Mrs. Vivian Z. Dolor</h1>
         </div>
       </div>
-      <h1 className='title2'>Parents of the Bride and Groom</h1>
 
-      <h1 className='name2'>Rev. Fr. Reynaldo I. Pernia</h1>
-      <h1 className='title2'>Officiant</h1>
 
-      <h1 className='title2 pt-4'>Principal Sponsors</h1>
+      <h1 className='lg:text-3xl text-lg pt-5 font-bold'>Principal Sponsors</h1>
       <div className="">
         <table className="w-full">
           <tbody className='align-top text-base lg:text-4xl'>
             {Object.entries(sponsors).map(([male, female]) => (
-              <tr key={male}>
-                <td className="text-right pr-4">{male}</td>
-                <td className="text-left pl-4">{female}</td>
+              <tr key={male} className='lg:text-4xl text-lg font-crimson font-light w-full'>
+                <td className="text-right pr-4 w-2/5">{male}</td>
+                <td className="text-left pl-4 w-2/5">{female}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div className="flex flex-row text-center lg:gap-12 gap-3">
-        <div className="w-1/2">
-          <h1 className='name2'>Lady Jane N. Peñaflor</h1>
-          <h1 className='title2'>Matron of Honor</h1>
+      <div className="flex flex-row text-center lg:gap-12 gap-3 pt-5 w-full  items-start justify-center">
+        <div className=" w-1/3">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Matron of Honor</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Lady Jane N. Peñaflor</h1>
         </div>
-        <div className="w-1/2">
-          <h1 className='name2'>Keith Christian Maerly Bañaga</h1>
-          <h1 className='title2'>Best Man</h1>
+        <div className=" w-1/3">
+          <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Best Man</h1>
+          <h1 className='lg:text-4xl text-lg font-crimson font-light'>Keith Christian Maerly Bañaga</h1>
         </div>
       </div>
 
       
-      <h1 className='name2'>Carl Daniel S. Paner</h1>
-      <h1 className='title2'>Bible Bearer</h1>
+      <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Bible Bearer</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Carl Daniel S. Paner</h1>
       
-      <h1 className='name2'>Abbi Neil Bigno</h1>
-      <h1 className='title2'>Ring Bearer</h1>
+      <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Ring Bearer</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Abbi Neil Bigno</h1>
       
-      <h1 className='name2'>Paolo D. Penkian</h1>
-      <h1 className='title2'>Coin Bearer</h1>
+      <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Coin Bearer</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Paolo D. Penkian</h1>
       
-      <h1 className='lg:text-4xl text-lg pt-12'>Alexandra Criste N. Bajade</h1>
-      <h1 className='lg:text-4xl text-lg'>Abegail N. Bajade</h1>
-      <h1 className='lg:text-4xl text-lg'>Cleah Franzine C. Nazareno</h1>
-      <h1 className='lg:text-4xl text-base lg:pt-12 pt-2 pb-4'>Flower Girls</h1>
+      <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-5 font-bold`}>Flower Girls</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Alexandra Criste N. Bajade</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Abegail N. Bajade</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Cleah Franzine C. Nazareno</h1>
       
 
     </div>
