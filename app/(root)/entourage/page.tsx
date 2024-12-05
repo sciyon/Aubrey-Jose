@@ -44,7 +44,7 @@ const page = () => {
           <h1>Mrs. Ann N. Bentulan</h1>
         </div>
         <div className="name2 w-1/2">
-          <h1>Mr. Albert C. Dolor</h1>
+          <h1>Mr. Alberto C. Dolor</h1>
           <h1>Mrs. Vivian Z. Dolor</h1>
         </div>
       </div>
