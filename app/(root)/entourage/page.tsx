@@ -106,7 +106,7 @@ const page = () => {
       <h1 className='lg:text-4xl text-lg font-crimson font-light'>Abbi Neil Bigno</h1>
       
       <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-4 font-bold`}>Coin Bearer</h1>
-      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Paolo D. Penkian</h1>
+      <h1 className='lg:text-4xl text-lg font-crimson font-light'>Engr. Paolo D. Penkian</h1>
       
       <h1 className={`${cormorant.className} lg:text-3xl text-lg pt-5 font-bold`}>Flower Girls</h1>
       <h1 className='lg:text-4xl text-lg font-crimson font-light'>Alexandra Criste N. Bajade</h1>
