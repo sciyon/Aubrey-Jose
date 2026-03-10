@@ -3,15 +3,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { createClient } from '@/app/utils/supabase/client';
 import { SupabaseClient } from '@supabase/supabase-js';
-import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import { jsPDF } from 'jspdf';
+import { autoTable } from 'jspdf-autotable';
 import { cormorant } from '@/app/fonts';
-
-declare module 'jspdf' {
-  interface jsPDF {
-    autoTable: (options: AutoTableOptions) => jsPDF;
-  }
-}
 
 // Add interface for RSVP data structure
 interface RSVPData {
@@ -25,13 +19,6 @@ interface RSVPData {
 interface ModalContent {
   header: string;
   body: string;
-}
-
-// Add AutoTableOptions interface
-interface AutoTableOptions {
-  head: string[][];
-  body: (string | number)[][];
-  startY?: number;
 }
 
 const Invitations = () => {
@@ -312,7 +299,7 @@ const Invitations = () => {
       item.status ? 'Accepted' : 'Pending'
     ]);
   
-    doc.autoTable({
+    autoTable(doc, {
       head: [['Name', 'Phone Number', 'Date Requested', 'RSVP Status']],
       body: tableData,
       startY: 30, // Start the table after the export date and time
